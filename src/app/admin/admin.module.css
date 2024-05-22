@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap");
+
+.loading {
+  background-color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.loading h1 {
+  font-family: "Sofia Sans Extra Condensed";
+  letter-spacing: -1.2px;
+  text-align: center;
+}
+
+.main {
+  background-color: #111;
+  padding-left: 200px;
+  padding-right: 200px;
+  padding-top: 55px;
+  padding-bottom: 55px;
+  overflow-x: auto;
+}
+
+.main header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main header button {
+  width: 120px;
+  background-color: #000;
+  color: #fff;
+  font-size: 26px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 0;
+  border-radius: 5px;
+  font-family: "Sofia Sans Extra Condensed";
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  color: #eee;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #333;
+}
+
+.main header button:hover {
+  opacity: 0.6;
+  width: 130px;
+}
+
+.bgDif {
+  border-bottom: 1px solid #333;
+  padding-bottom: 40px;
+}
+
+.title {
+  font-size: 52px;
+  letter-spacing: -1.2px;
+  font-family: "Sofia Sans Extra Condensed";
+}
+
+.subtitle {
+  font-size: 42px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: "Sofia Sans Extra Condensed";
+  color: #eee;
+  margin-top: 25px;
+}
+
+.desc {
+  font-size: 22px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: "Sofia Sans Extra Condensed";
+  color: #eee;
+}
+
+.images {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.image {
+  border-radius: 5px;
+  width: 200px;
+  height: 200px;
+  padding: 15px;
+  justify-content: center;
+  display: flex;
+  background-color: #222;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.image:hover {
+  opacity: 0.8;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.texts {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 100%;
+}
+
+.text {
+  font-family: "Sofia Sans Extra Condensed";
+  font-size: 22px;
+  letter-spacing: 0.6px;
+  color: #8c8c8c;
+  margin-top: 15px;
+}
+
+.text input {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 10px;
+  border: 0;
+  font-size: 22px;
+  letter-spacing: -0.6px;
+  color: #fff;
+  font-family: "Sofia Sans Extra Condensed";
+  outline: none;
+  border: 1px solid #333;
+  background-color: #222;
+}
+
+.uploadImgBtn {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  font-size: 26px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 5px;
+  font-family: "Sofia Sans Extra Condensed";
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  color: #eee;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #333;
+}
+
+@media only screen and (max-width: 1300px) {
+  .main {
+    background-color: #111;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 55px;
+    padding-bottom: 55px;
+    overflow-y: auto;
+  }
+
+  .texts {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    margin-top: 25px;
+  }
+
+  .images {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    margin-top: 25px;
+  }
+
+  .image {
+    flex: 0 0 auto; /* Ensures the divs don't stretch and only take up necessary width */
+    width: 200px;
+    height: 200px;
+    padding: 15px;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: #222;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    scroll-snap-align: start; /* Aligns the snapping points at the start edge of the container */
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .main {
+    background-color: #111;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 55px;
+    padding-bottom: 55px;
+    overflow-y: auto;
+  }
+}
