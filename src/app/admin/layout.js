@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
   const [hasPermission, setHasPermission] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState("");
-  const password = "laranjada";
+  const password = "azazazaz";
 
   useEffect(() => {
     const storedPermission = localStorage.getItem("Permission");
