@@ -3,6 +3,7 @@ export const en = {
   criacaoTitle: "Creation",
   corteTitle: "Cuts",
   menuTitle: "Menu",
+  bookTitle: "Book",
   contactosTitle: "Contacts",
   contactosPhoneDesc: "call to national fixed network",
   politicaPrivacy: "PRIVACY POLICY | ELECTRONIC COMPLAINTS BOOK",

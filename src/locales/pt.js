@@ -3,6 +3,7 @@ export const pt = {
   criacaoTitle: "Criação",
   corteTitle: "Cortes",
   menuTitle: "Menu",
+  bookTitle: "Reserva",
   contactosTitle: "Contactos",
   contactosPhoneDesc: "chamada para a rede fixa nacional",
   politicaPrivacy: "POLÍTICA DE PRIVACIDADE | LIVRO DE RECLAMAÇÕES ELETRÓNICO",

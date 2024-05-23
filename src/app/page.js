@@ -118,7 +118,6 @@ export default function Home() {
                 scrollToRef(menuTitleRef);
               }}
             >
-              sddsd
               {content.menuTitle}
             </li>
             <li
@@ -174,7 +173,7 @@ export default function Home() {
                 }}
                 className={styles.reservarBtn}
               >
-                {content.contactosTitle}
+                {content.bookTitle}
               </button>
             </div>
           </div>
@@ -238,7 +237,7 @@ export default function Home() {
               onClick={() => scrollToRef(contactosTitleRef)}
               className={styles.reservarBtn}
             >
-              {content.contactosTitle}
+              {content.bookTitle}
             </button>
           </div>
         </div>
