@@ -12,30 +12,35 @@ const AdminPage = () => {
     slider_image2: null,
     slider_image3: null,
     slider_image4: null,
-    sobre_titleImage: null,
+    sobre_titleImage_pt: null,
+    sobre_titleImage_en: null,
     sobre_description_pt: "",
     sobre_description_en: "",
     sobre_image1: null,
     sobre_image2: null,
     sobre_video_link: "",
-    criacao_titleImage: null,
-    criacao_description_pt: "",
+    criacao_titleImage_pt: null,
+    criacao_titleImage_pt: null,
+    criacao_description_en: "",
     criacao_description_en: "",
     criacao_image1: null,
     criacao_image2: null,
-    maturacao_titleImage: null,
+    maturacao_titleImage_pt: null,
+    maturacao_titleImage_en: null,
     maturacao_description_pt: "",
     maturacao_description_en: "",
     maturacao_image1: null,
     maturacao_image2: null,
     maturacao_image3: null,
-    corte_titleImage: null,
+    corte_titleImage_pt: null,
+    corte_titleImage_en: null,
     corte_description_pt: "",
     corte_description_en: "",
     corte_image1: null,
     corte_image2: null,
     corte_image3: null,
-    menu_titleImage: null,
+    menu_titleImage_pt: null,
+    menu_titleImage_en: null,
     menu_description_pt: "",
     menu_description_en: "",
     menu_description2_pt: "",
@@ -46,7 +51,8 @@ const AdminPage = () => {
     menu_image4: null,
     menu_image5: null,
     menu_image6: null,
-    contacts_image: null,
+    contacts_image_pt: null,
+    contacts_image_en: null,
     contacts_location_street: "",
     contacts_location_postcode: "",
     contacts_location_region: "",
@@ -223,7 +229,10 @@ const AdminPage = () => {
 
         <div className={styles.images}>
           <div className={styles.image}>
-            {renderImageInput("sobre_titleImage")}
+            {renderImageInput("sobre_titleImage_pt")}
+          </div>
+          <div className={styles.image}>
+            {renderImageInput("sobre_titleImage_en")}
           </div>
 
           <div className={styles.image}>{renderImageInput("sobre_image1")}</div>
@@ -251,7 +260,10 @@ const AdminPage = () => {
 
         <div className={styles.images}>
           <div className={styles.image}>
-            {renderImageInput("criacao_titleImage")}
+            {renderImageInput("criacao_titleImage_pt")}
+          </div>
+          <div className={styles.image}>
+            {renderImageInput("criacao_titleImage_en")}
           </div>
 
           <div className={styles.image}>
@@ -281,7 +293,10 @@ const AdminPage = () => {
 
         <div className={styles.images}>
           <div className={styles.image}>
-            {renderImageInput("maturacao_titleImage")}
+            {renderImageInput("maturacao_titleImage_pt")}
+          </div>
+          <div className={styles.image}>
+            {renderImageInput("maturacao_titleImage_en")}
           </div>
 
           <div className={styles.image}>
@@ -314,7 +329,10 @@ const AdminPage = () => {
 
         <div className={styles.images}>
           <div className={styles.image}>
-            {renderImageInput("corte_titleImage")}
+            {renderImageInput("corte_titleImage_pt")}
+          </div>
+          <div className={styles.image}>
+            {renderImageInput("corte_titleImage_en")}
           </div>
 
           <div className={styles.image}>{renderImageInput("corte_image1")}</div>
@@ -340,7 +358,10 @@ const AdminPage = () => {
 
         <div className={styles.images}>
           <div className={styles.image}>
-            {renderImageInput("menu_titleImage")}
+            {renderImageInput("menu_titleImage_pt")}
+          </div>
+          <div className={styles.image}>
+            {renderImageInput("menu_titleImage_en")}
           </div>
 
           <div className={styles.image}>{renderImageInput("menu_image1")}</div>

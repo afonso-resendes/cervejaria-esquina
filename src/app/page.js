@@ -289,7 +289,7 @@ export default function Home() {
           />
         </div>
 
-        <p className={styles.desc}>{content.sobre_description}</p>
+        <p className={styles.desc}>{content.sobre_description}kk</p>
         <div className={styles.sobreImgs}>
           <div className={styles.sobreImgContainer}>
             <Image
@@ -310,13 +310,18 @@ export default function Home() {
             />
           </div>
         </div>
-        <a /* href={content.sobre_video_link} */ target="_blank">
-          <div className={styles.sobreVideo}>
-            <video controls>
-              <source src={content.sobre_video_link} type="video/mp4" />
-            </video>
-          </div>
-        </a>
+
+        <div className={styles.sobreVideo}>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/lBmFcBjq4fs"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
 
       <div

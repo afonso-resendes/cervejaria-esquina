@@ -25,6 +25,7 @@ export const LanguageProvider = ({ children }) => {
         processedData[key] = data[key];
       }
     }
+    console.log(processedData);
 
     return processedData;
   }
