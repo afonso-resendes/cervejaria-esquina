@@ -3,9 +3,10 @@ export const pt = {
   criacaoTitle: "Criação",
   corteTitle: "Cortes",
   menuTitle: "Menu",
-  bookTitle: "Reserva",
+  bookTitle: "Reservar",
   contactosTitle: "Contactos",
   contactosPhoneDesc: "chamada para a rede fixa nacional",
-  politicaPrivacy: "POLÍTICA DE PRIVACIDADE | LIVRO DE RECLAMAÇÕES ELETRÓNICO",
+  politicaPrivacy: "POLÍTICA DE PRIVACIDADE",
+  complaintsBook: "LIVRO DE RECLAMAÇÕES ELETRÓNICO",
   politicaRights: "© ESQUINA STEAKHOUSE. Todos os direitos reservados.",
 };

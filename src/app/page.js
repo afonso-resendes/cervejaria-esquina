@@ -173,7 +173,7 @@ export default function Home() {
                 }}
                 className={styles.reservarBtn}
               >
-                {content.contactosTitle}
+                {content.bookTitle}
               </button>
             </div>
           </div>
@@ -238,7 +238,7 @@ export default function Home() {
               onClick={() => scrollToRef(contactosTitleRef)}
               className={styles.reservarBtn}
             >
-              {content.contactosTitle}
+              {content.bookTitle}
             </button>
           </div>
         </div>
@@ -311,13 +311,18 @@ export default function Home() {
             />
           </div>
         </div>
-        <a /* href={content.sobre_video_link} */ target="_blank">
-          <div className={styles.sobreVideo}>
-            <video controls>
-              <source src={content.sobre_video_link} type="video/mp4" />
-            </video>
-          </div>
-        </a>
+
+        <div className={styles.sobreVideo}>
+          <iframe
+            width="560"
+            height="315"
+            src={content.sobre_video_link}
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
 
       <div
@@ -351,6 +356,12 @@ export default function Home() {
           </div>
           <div className={styles.dirCriacao}>
             <div className={styles.criacaoImg2Container}>
+              <Image
+                src={content.criacao_selo}
+                width={70}
+                height={70}
+                alt="Step"
+              />
               <Image
                 src={content.criacao_image2}
                 width={400}
@@ -634,7 +645,7 @@ export default function Home() {
         <p className={styles.politicaText1}>
           <a target="_blank" href="https://www.livroreclamacoes.pt/Inicio/">
             {" "}
-            {content.politicaPrivacy}
+            {content.politicaPrivacy} | {content.complaintsBook}
           </a>
         </p>
         <p className={styles.politicaText2}>{content.politicaRights}</p>

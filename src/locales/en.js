@@ -6,6 +6,7 @@ export const en = {
   bookTitle: "Book",
   contactosTitle: "Contacts",
   contactosPhoneDesc: "call to national fixed network",
-  politicaPrivacy: "PRIVACY POLICY | ELECTRONIC COMPLAINTS BOOK",
+  politicaPrivacy: "PRIVACY POLICY",
+  complaintsBook: "ELECTRONIC COMPLAINTS BOOK",
   politicaRights: "© ESQUINA STEAKHOUSE. All rights reserved.",
 };

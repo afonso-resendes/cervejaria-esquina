@@ -25,6 +25,8 @@ const AdminPage = () => {
     criacao_description_en: "",
     criacao_image1: null,
     criacao_image2: null,
+    criacao_selo_pt: null,
+    criacao_selo_en: null,
     maturacao_titleImage_pt: null,
     maturacao_titleImage_en: null,
     maturacao_description_pt: "",
@@ -60,7 +62,8 @@ const AdminPage = () => {
     contacts_email: "",
     contacts_facebook: "",
     contacts_insta: "",
-    hours_image: null,
+    hours_image_pt: null,
+    hours_image_en: null,
     hours_1_pt: "",
     hours_1_en: "",
     hours_2_pt: "",
@@ -272,6 +275,12 @@ const AdminPage = () => {
           <div className={styles.image}>
             {renderImageInput("criacao_image2")}
           </div>
+          <div className={styles.image}>
+            {renderImageInput("criacao_selo_pt")}
+          </div>
+          <div className={styles.image}>
+            {renderImageInput("criacao_selo_en")}
+          </div>
         </div>
         <br></br>
         <br></br>
@@ -398,7 +407,10 @@ const AdminPage = () => {
 
         <div className={styles.images}>
           <div className={styles.image}>
-            {renderImageInput("contacts_image")}
+            {renderImageInput("contacts_image_pt")}
+          </div>
+          <div className={styles.image}>
+            {renderImageInput("contacts_image_en")}
           </div>
         </div>
         <br></br>
@@ -440,7 +452,14 @@ const AdminPage = () => {
         <p className={styles.desc}>Imagens de "Horários"</p>
 
         <div className={styles.images}>
-          <div className={styles.image}>{renderImageInput("hours_image")}</div>
+          <div className={styles.image}>
+            {renderImageInput("hours_image_pt")}
+          </div>
+        </div>
+        <div className={styles.images}>
+          <div className={styles.image}>
+            {renderImageInput("hours_image_en")}
+          </div>
         </div>
         <br></br>
         <br></br>
