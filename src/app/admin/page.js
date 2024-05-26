@@ -86,7 +86,7 @@ const AdminPage = () => {
       } catch (error) {
         console.error("Error fetching content: ", error);
       } finally {
-        setLoading(false); // Set loading to false after fetching content
+        setLoading(false);
       }
     };
 
