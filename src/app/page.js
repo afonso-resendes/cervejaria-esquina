@@ -179,6 +179,7 @@ export default function Home() {
           </div>
         </nav>
       )}
+      <div style={{ height: 105 }}></div>
       <nav className={styles.navBar}>
         <Image
           width={150}
@@ -437,6 +438,7 @@ export default function Home() {
             height={70}
             src={content.corte_titleImage}
             className={styles.title}
+            style={{ scale: 1.1 }}
           />
         </div>
         <div className={styles.cortesImgs}>
@@ -564,6 +566,7 @@ export default function Home() {
             height={70}
             src={content.contacts_image}
             className={styles.titleContactos}
+            style={{ scale: 1 }}
           />
         </div>
 
@@ -583,7 +586,9 @@ export default function Home() {
               </p>
             </div>
             <div className={styles.contactosTexts2}>
-              <p className={styles.contactosText}>{content.contacts_phone}</p>
+              <p style={{ fontSize: 35 }} className={styles.contactosText}>
+                {content.contacts_phone}
+              </p>
               <p style={{ fontSize: 18 }} className={styles.contactosText}>
                 {content.contactosPhoneDesc}
               </p>
@@ -626,10 +631,11 @@ export default function Home() {
         <div className={styles.titleContent}>
           <Image
             alt="Step"
-            width={140}
+            width={200}
             height={70}
             src={content.hours_image}
             className={styles.title}
+            style={{ scale: 0.85 }}
           />
         </div>
         <br />
@@ -645,9 +651,16 @@ export default function Home() {
         className={styles.politica}
       >
         <p className={styles.politicaText1}>
-          <a target="_blank" href="https://www.livroreclamacoes.pt/Inicio/">
-            {" "}
-            {content.politicaPrivacy} | {content.complaintsBook}
+          <a style={{ marginRight: 10 }} target="_blank">
+            {content.politicaPrivacy}
+          </a>
+          |
+          <a
+            style={{ marginLeft: 10 }}
+            target="_blank"
+            href="https://www.livroreclamacoes.pt/Inicio/"
+          >
+            {content.complaintsBook}
           </a>
         </p>
         <p className={styles.politicaText2}>{content.politicaRights}</p>

@@ -90,6 +90,10 @@
   padding-bottom: 15px;
   padding-left: 400px;
   padding-right: 400px;
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  width: 100%;
 }
 
 .navTlm,
@@ -323,7 +327,7 @@
   font-family: "Sofia Sans Extra Condensed";
   font-size: 30px;
   color: #333;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 /* MATURACAO  */
