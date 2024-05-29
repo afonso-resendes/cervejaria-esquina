@@ -359,8 +359,8 @@ export default function Home() {
             <div className={styles.criacaoImg2Container}>
               <Image
                 src={content.criacao_selo}
-                width={70}
-                height={70}
+                width={150}
+                height={150}
                 alt="Step"
                 className={styles.maturacaoImg4}
               />
