@@ -39,7 +39,7 @@ export const LanguageProvider = ({ children }) => {
     const fetchData = async () => {
       setIsLoading(true);
       const storedLanguage = localStorage.getItem(localStorageKey);
-      const lang = storedLanguage || "en";
+      const lang = storedLanguage || "pt";
       const data = await getContentData();
 
       setAllContent(data);

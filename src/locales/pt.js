@@ -2,7 +2,7 @@ export const pt = {
   sobreNosTitle: "Sobre Nós",
   criacaoTitle: "Criação",
   corteTitle: "Cortes",
-  menuTitle: "Menu",
+  menuTitle: "Ementa",
   bookTitle: "Reservar",
   contactosTitle: "Contactos",
   contactosPhoneDesc: "chamada para a rede fixa nacional",
