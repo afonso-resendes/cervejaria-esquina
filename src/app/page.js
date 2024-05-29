@@ -315,6 +315,7 @@ export default function Home() {
         <div className={styles.sobreVideo}>
           <iframe
             width="560"
+            style={{ width: "100%", height: "100%" }}
             height="315"
             src={content.sobre_video_link}
             title="YouTube video player"
@@ -361,6 +362,7 @@ export default function Home() {
                 width={70}
                 height={70}
                 alt="Step"
+                className={styles.maturacaoImg4}
               />
               <Image
                 src={content.criacao_image2}

@@ -455,8 +455,6 @@ const AdminPage = () => {
           <div className={styles.image}>
             {renderImageInput("hours_image_pt")}
           </div>
-        </div>
-        <div className={styles.images}>
           <div className={styles.image}>
             {renderImageInput("hours_image_en")}
           </div>
