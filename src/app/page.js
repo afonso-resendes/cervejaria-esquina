@@ -15,7 +15,8 @@ import x_icon from "../../public/FOTOS/x_icon.webp";
 import { useLanguage } from "@/context/ContentContext";
 
 export default function Home() {
-  const { setLanguage, isLoading, content, sliderImages } = useLanguage();
+  const { language, setLanguage, isLoading, content, sliderImages } =
+    useLanguage();
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [closeNav, setCloseNav] = useState(false);
@@ -651,7 +652,15 @@ export default function Home() {
         className={styles.politica}
       >
         <p className={styles.politicaText1}>
-          <a style={{ marginRight: 10 }} target="_blank">
+          <a
+            style={{ marginRight: 10 }}
+            target="_blank"
+            href={
+              language == "pt"
+                ? "https://firebasestorage.googleapis.com/v0/b/cervejaria-esquina.appspot.com/o/RGPD_ESQUINA_STEAKHOUSE_PT.pdf?alt=media&token=a5679aff-3b37-4f21-9cbc-46ddfc6ae06f"
+                : "https://firebasestorage.googleapis.com/v0/b/cervejaria-esquina.appspot.com/o/RGPD_ESQUINA_STEAKHOUSE_EN.pdf?alt=media&token=eab988be-f9a8-42e9-a205-0f328c3304f3"
+            }
+          >
             {content.politicaPrivacy}
           </a>
           |
