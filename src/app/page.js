@@ -438,7 +438,6 @@ export default function Home() {
             height={70}
             src={content.corte_titleImage}
             className={styles.title}
-            style={{ scale: 1.1 }}
           />
         </div>
         <div className={styles.cortesImgs}>
@@ -635,7 +634,6 @@ export default function Home() {
             height={70}
             src={content.hours_image}
             className={styles.title}
-            style={{ scale: 0.85 }}
           />
         </div>
         <br />
