@@ -733,7 +733,7 @@
   }
 
   .titleContent {
-    width: 105px;
+    width: 145px;
   }
 
   .titleContactos {
@@ -906,9 +906,12 @@
     margin-top: 25px;
   }
 
-  .horarioText,
+  .horarioText {
+    font-size: 24px;
+  }
+
   .politicaText1,
   .politicaText2 {
-    font-size: 24px;
+    font-size: 16px;
   }
 }
