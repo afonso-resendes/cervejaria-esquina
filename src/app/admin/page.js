@@ -103,9 +103,28 @@ const AdminPage = () => {
     }));
   };
 
+  function convertToEmbed(url) {
+    let embedUrl;
+
+    if (url.includes("youtube.com/watch?v=")) {
+      const videoId = url.split("v=")[1].split("&")[0];
+      embedUrl = `https://www.youtube.com/embed/${videoId}`;
+    } else if (url.includes("youtu.be/")) {
+      const videoId = url.split("youtu.be/")[1].split("?")[0];
+      embedUrl = `https://www.youtube.com/embed/${videoId}`;
+    } else {
+      throw new Error("Invalid YouTube URL format");
+    }
+
+    return embedUrl;
+  }
+
   const saveContent = async () => {
     try {
       const updatedContent = { ...content }; // Create a copy of content to avoid mutation
+      updatedContent.sobre_video_link = convertToEmbed(
+        updatedContent.sobre_video_link
+      );
       const promises = [];
 
       for (const key in updatedContent) {
