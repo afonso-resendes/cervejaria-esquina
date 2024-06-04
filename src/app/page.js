@@ -26,7 +26,7 @@ export default function Home() {
 
   const scrollToRef = (ref) => {
     window.scrollTo({
-      top: ref.current.offsetTop - 25,
+      top: ref.current.offsetTop - 105,
       behavior: "smooth",
     });
   };
