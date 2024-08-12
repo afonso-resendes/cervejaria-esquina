@@ -112,6 +112,8 @@ const AdminPage = () => {
     } else if (url.includes("youtu.be/")) {
       const videoId = url.split("youtu.be/")[1].split("?")[0];
       embedUrl = `https://www.youtube.com/embed/${videoId}`;
+    } else if (url.includes("youtube.com/embed/")) {
+      embedUrl = url;
     } else {
       throw new Error("Invalid YouTube URL format");
     }
