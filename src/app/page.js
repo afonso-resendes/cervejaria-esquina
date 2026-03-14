@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./page.module.css";
 import { useState, useEffect, useRef } from "react";
 
@@ -71,7 +72,7 @@ export default function Home() {
         <button onClick={handleCloseNav} className={styles.closeBtn}>
           <Image
             src={riscos}
-            alt="Step"
+            alt={language === "pt" ? "Abrir menu" : "Open menu"}
             width={35}
             height={35}
             className={styles.iconNavTlm}
@@ -80,7 +81,7 @@ export default function Home() {
         <Image
           width={150}
           height={80}
-          alt="Step"
+          alt="Cervejaria Esquina Steakhouse - Logo"
           src={logo}
           className={styles.logo}
         />
@@ -91,7 +92,7 @@ export default function Home() {
           <button onClick={handleCloseNav} className={styles.closeBtn}>
             <Image
               src={x_icon}
-              alt="Step"
+              alt={language === "pt" ? "Fechar menu" : "Close menu"}
               width={35}
               height={35}
               className={styles.iconNavTlm}
@@ -100,7 +101,7 @@ export default function Home() {
           <Image
             width={150}
             height={80}
-            alt="Step"
+            alt="Cervejaria Esquina Steakhouse - Logo"
             src={logo}
             className={styles.logo}
           />
@@ -137,7 +138,7 @@ export default function Home() {
                   src={facebookWhite}
                   width={35}
                   height={35}
-                  alt="Step"
+                  alt="Facebook - Cervejaria Esquina Steakhouse"
                   className={styles.socialImg}
                 />
               </a>
@@ -146,26 +147,28 @@ export default function Home() {
                   src={instaWhite}
                   width={35}
                   height={35}
-                  alt="Step"
+                  alt="Instagram - Cervejaria Esquina Steakhouse"
                   className={styles.socialImg}
                 />
               </a>
             </div>
             <div className={styles.navBarDireita}>
               <div className={styles.linguas}>
-                <li
-                  style={{ cursor: "pointer" }}
-                  onClick={() => setLanguage("pt")}
+                <Link
+                  href="/"
+                  className={language === "pt" ? styles.langActive : ""}
+                  onClick={() => setCloseNav(false)}
                 >
                   PT
-                </li>
-                |
-                <li
-                  style={{ cursor: "pointer" }}
-                  onClick={() => setLanguage("en")}
+                </Link>
+                <span className={styles.langDivider}>|</span>
+                <Link
+                  href="/en"
+                  className={language === "en" ? styles.langActive : ""}
+                  onClick={() => setCloseNav(false)}
                 >
                   EN
-                </li>
+                </Link>
               </div>
               <button
                 onClick={() => {
@@ -182,10 +185,11 @@ export default function Home() {
       )}
       <div style={{ height: 105 }}></div>
       <nav className={styles.navBar}>
+        <h1 className="visually-hidden">{content.siteTitle}</h1>
         <Image
           width={150}
           height={80}
-          alt="Step"
+          alt="Cervejaria Esquina Steakhouse - Logo"
           src={logo}
           className={styles.logo}
         />
@@ -205,7 +209,7 @@ export default function Home() {
                 src={facebookWhite}
                 width={35}
                 height={35}
-                alt="Step"
+                alt="Facebook - Cervejaria Esquina Steakhouse"
                 className={styles.socialImg}
               />
             </a>
@@ -214,7 +218,7 @@ export default function Home() {
                 src={instaWhite}
                 width={35}
                 height={35}
-                alt="Step"
+                alt="Instagram - Cervejaria Esquina Steakhouse"
                 className={styles.socialImg}
                 style={{ marginLeft: -7 }}
               />
@@ -222,19 +226,19 @@ export default function Home() {
           </div>
           <div className={styles.navBarDireita}>
             <div className={styles.linguas}>
-              <li
-                style={{ cursor: "pointer" }}
-                onClick={() => setLanguage("pt")}
+              <Link
+                href="/"
+                className={language === "pt" ? styles.langActive : ""}
               >
                 PT
-              </li>
-              |
-              <li
-                style={{ cursor: "pointer" }}
-                onClick={() => setLanguage("en")}
+              </Link>
+              <span className={styles.langDivider}>|</span>
+              <Link
+                href="/en"
+                className={language === "en" ? styles.langActive : ""}
               >
                 EN
-              </li>
+              </Link>
             </div>
             <button
               onClick={() => scrollToRef(contactosTitleRef)}
@@ -258,7 +262,7 @@ export default function Home() {
               >
                 <Image
                   src={img}
-                  alt={`Slide ${index + 1}`}
+                  alt={language === "pt" ? `Carrossel Cervejaria Esquina - Carne maturada Açores, slide ${index + 1}` : `Cervejaria Esquina steakhouse carousel - Matured meat Azores, slide ${index + 1}`}
                   width={2000} // Adjust to fit the container size
                   height={2000} // Adjust to maintain aspect ratio
                   layout="responsive" // This makes the image responsive
@@ -281,10 +285,11 @@ export default function Home() {
         </div>
       </div>
 
-      <div ref={sobreTitleRef} className={styles.sobreNos}>
+      <section ref={sobreTitleRef} className={styles.sobreNos}>
+        <h2 className="visually-hidden">{content.sobreNosTitle}</h2>
         <div className={styles.titleContent}>
           <Image
-            alt="Step"
+            alt={`${content.sobreNosTitle} - Cervejaria Esquina Steakhouse`}
             width={140}
             height={70}
             src={content.sobre_titleImage}
@@ -299,7 +304,7 @@ export default function Home() {
               src={content.sobre_image1}
               width={300}
               height={300}
-              alt="Step"
+              alt={language === "pt" ? "Ambiente Cervejaria Esquina - Ponta Delgada" : "Cervejaria Esquina steakhouse interior - Ponta Delgada"}
               className={styles.sobreImg1}
             />
           </div>
@@ -308,7 +313,7 @@ export default function Home() {
               src={content.sobre_image2}
               width={600}
               height={300}
-              alt="Step"
+              alt={language === "pt" ? "Steakhouse Ponta Delgada - Espaço acolhedor" : "Steakhouse Ponta Delgada - Cozy dining space"}
               className={styles.sobreImg2}
             />
           </div>
@@ -326,17 +331,18 @@ export default function Home() {
             allowFullScreen
           ></iframe>
         </div>
-      </div>
+      </section>
 
-      <div
+      <section
         style={{
           backgroundImage: `url(${backgroundPaper.src})`,
         }}
         className={styles.criacao}
       >
+        <h2 className="visually-hidden">{content.criacaoTitle}</h2>
         <div className={styles.titleContent}>
           <Image
-            alt="Step"
+            alt={`${content.criacaoTitle} - Carne Ramo Grande Açores`}
             width={140}
             height={70}
             src={content.criacao_titleImage}
@@ -351,7 +357,7 @@ export default function Home() {
                 src={content.criacao_image1}
                 width={400}
                 height={300}
-                alt="Step"
+                alt={language === "pt" ? "Gado Ramo Grande - Pastagens Açores" : "Ramo Grande cattle - Azores pastures"}
                 className={styles.criacaoImg1}
               />
             </div>
@@ -363,25 +369,26 @@ export default function Home() {
                 src={content.criacao_selo}
                 width={150}
                 height={150}
-                alt="Step"
+                alt={language === "pt" ? "Selo qualidade Cervejaria Esquina - Carne superior" : "Cervejaria Esquina quality seal - Premium meat"}
                 className={styles.maturacaoImg4}
               />
               <Image
                 src={content.criacao_image2}
                 width={400}
                 height={500}
-                alt="Step"
+                alt={language === "pt" ? "Carne maturada - Raça Ramo Grande Açores" : "Matured meat - Ramo Grande breed Azores"}
                 className={styles.criacaoImg2}
               />
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className={styles.maturacao}>
+      <section className={styles.maturacao}>
+        <h2 className="visually-hidden">{content.maturacaoTitle}</h2>
         <div className={styles.titleContent}>
           <Image
-            alt="Step"
+            alt={`${content.maturacaoTitle} - Carne maturada Cervejaria Esquina`}
             width={140}
             height={70}
             src={content.maturacao_titleImage}
@@ -395,7 +402,7 @@ export default function Home() {
                 src={content.maturacao_image1}
                 width={300}
                 height={400}
-                alt="Step"
+                alt={language === "pt" ? "Processo maturação carne - Cervejaria Esquina" : "Meat maturation process - Cervejaria Esquina"}
                 className={styles.maturacaoImg1}
               />
             </div>
@@ -407,7 +414,7 @@ export default function Home() {
                   src={content.maturacao_image2}
                   width={150}
                   height={150}
-                  alt="Step"
+                  alt={language === "pt" ? "Carne maturada - Textura e sabor" : "Matured meat - Texture and flavor"}
                   className={styles.maturacaoImg2}
                 />
               </div>
@@ -416,7 +423,7 @@ export default function Home() {
                   src={content.maturacao_image3}
                   width={150}
                   height={150}
-                  alt="Step"
+                  alt={language === "pt" ? "Qualidade superior - Carne Açores" : "Superior quality - Azores meat"}
                   className={styles.maturacaoImg3}
                 />
               </div>
@@ -424,17 +431,18 @@ export default function Home() {
             <p className={styles.desc}>{content.maturacao_description}</p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div
+      <section
         style={{
           backgroundImage: `url(${backgroundPaper.src})`,
         }}
         className={styles.corte}
       >
+        <h2 className="visually-hidden">{content.corteTitle}</h2>
         <div className={styles.titleContent}>
           <Image
-            alt="Step"
+            alt={`${content.corteTitle} - T-bone, ribeye, picanha Cervejaria Esquina`}
             width={140}
             height={70}
             src={content.corte_titleImage}
@@ -447,7 +455,7 @@ export default function Home() {
               src={content.corte_image1}
               width={450}
               height={300}
-              alt="Step"
+              alt={language === "pt" ? "Cortes premium - Carne maturada steakhouse" : "Premium cuts - Matured meat steakhouse"}
               className={styles.corteImg1}
             />
           </div>
@@ -456,7 +464,7 @@ export default function Home() {
               src={content.corte_image2}
               width={250}
               height={300}
-              alt="Step"
+              alt={language === "pt" ? "Bife qualidade superior - Açores" : "Superior quality steak - Azores"}
               className={styles.corteImg2}
             />
           </div>
@@ -465,7 +473,7 @@ export default function Home() {
               src={content.corte_image3}
               width={250}
               height={300}
-              alt="Step"
+              alt={language === "pt" ? "Cortes especiais - Cervejaria Esquina" : "Special cuts - Cervejaria Esquina"}
               className={styles.corteImg3}
             />
           </div>
@@ -473,12 +481,13 @@ export default function Home() {
         <p style={{ color: "#000" }} className={styles.desc}>
           {content.corte_description}
         </p>
-      </div>
+      </section>
 
-      <div ref={menuTitleRef} className={styles.menu}>
+      <section ref={menuTitleRef} className={styles.menu}>
+        <h2 className="visually-hidden">{content.menuTitle}</h2>
         <div className={styles.titleContent}>
           <Image
-            alt="Step"
+            alt={`${content.menuTitle} - Petiscos e carne maturada Cervejaria Esquina`}
             width={140}
             height={70}
             src={content.menu_titleImage}
@@ -492,7 +501,7 @@ export default function Home() {
               src={content.menu_image1}
               width={350}
               height={200}
-              alt="Step"
+              alt={language === "pt" ? "Petiscos tradicionais - Camarão e pão de alho" : "Traditional snacks - Shrimp and garlic bread"}
               className={styles.menuImg1}
             />
           </div>
@@ -501,7 +510,7 @@ export default function Home() {
               src={content.menu_image2}
               width={350}
               height={200}
-              alt="Step"
+              alt={language === "pt" ? "Pregos e cerveja açoriana - Cervejaria Esquina" : "Pregos and Azorean beer - Cervejaria Esquina"}
               className={styles.menuImg2}
             />
           </div>
@@ -513,7 +522,7 @@ export default function Home() {
               src={content.menu_image3}
               width={350}
               height={200}
-              alt="Step"
+              alt={language === "pt" ? "Carne maturada Ramo Grande - Ementa" : "Ramo Grande matured meat - Menu"}
               className={styles.menuImg3}
             />
           </div>
@@ -522,7 +531,7 @@ export default function Home() {
               src={content.menu_image4}
               width={350}
               height={200}
-              alt="Step"
+              alt={language === "pt" ? "Pratos steakhouse Ponta Delgada" : "Steakhouse dishes Ponta Delgada"}
               className={styles.menuImg4}
             />
           </div>
@@ -533,7 +542,7 @@ export default function Home() {
               src={content.menu_image5}
               width={350}
               height={350}
-              alt="Step"
+              alt={language === "pt" ? "Garrafeira vinhos portugueses - Cervejaria Esquina" : "Portuguese wine cellar - Cervejaria Esquina"}
               className={styles.menuImg5}
             />
           </div>
@@ -545,23 +554,24 @@ export default function Home() {
               src={content.menu_image6}
               width={700}
               height={350}
-              alt="Step"
+              alt={language === "pt" ? "Vinhos e boa comida - Cervejaria Esquina Steakhouse" : "Wines and fine dining - Cervejaria Esquina Steakhouse"}
               className={styles.menuImg6}
             />
           </div>
         </div>
-      </div>
+      </section>
 
-      <div
+      <section
         style={{
           backgroundImage: `url(${backgroundPaper.src})`,
         }}
         ref={contactosTitleRef}
         className={styles.contactos}
       >
+        <h2 className="visually-hidden">{content.contactosTitle}</h2>
         <div className={styles.titleContent}>
           <Image
-            alt="Step"
+            alt={`${content.contactosTitle} - Cervejaria Esquina Ponta Delgada`}
             width={140}
             height={70}
             src={content.contacts_image}
@@ -600,7 +610,7 @@ export default function Home() {
                   src={facebook}
                   width={45}
                   height={45}
-                  alt="Step"
+                  alt="Facebook - Cervejaria Esquina Steakhouse"
                   className={styles.socialImg}
                 />
               </a>
@@ -609,7 +619,7 @@ export default function Home() {
                   src={insta}
                   width={45}
                   height={45}
-                  alt="Step"
+                  alt="Instagram - Cervejaria Esquina Steakhouse"
                   className={styles.socialImg}
                 />
               </a>
@@ -625,12 +635,13 @@ export default function Home() {
             ></iframe>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className={styles.horario}>
+      <section className={styles.horario}>
+        <h2 className="visually-hidden">{content.hoursTitle}</h2>
         <div className={styles.titleContent}>
           <Image
-            alt="Step"
+            alt={`${content.hoursTitle} - Cervejaria Esquina Ponta Delgada`}
             width={200}
             height={70}
             src={content.hours_image}
@@ -641,7 +652,7 @@ export default function Home() {
         <p className={styles.horarioText}>{content.hours_1}</p>
         <p className={styles.horarioText}>{content.hours_2}</p>
         <p className={styles.horarioText}>{content.hours_3}</p>
-      </div>
+      </section>
 
       <div
         style={{

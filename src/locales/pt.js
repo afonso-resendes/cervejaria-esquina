@@ -1,8 +1,11 @@
 export const pt = {
+  siteTitle: "Cervejaria Esquina Steakhouse",
   sobreNosTitle: "Sobre Nós",
   criacaoTitle: "Criação",
+  maturacaoTitle: "Maturação",
   corteTitle: "Cortes",
   menuTitle: "Ementa",
+  hoursTitle: "Horários",
   bookTitle: "Reservar",
   contactosTitle: "Contactos",
   contactosPhoneDesc: "chamada para a rede fixa nacional",

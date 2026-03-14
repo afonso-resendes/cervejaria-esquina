@@ -1,101 +1,100 @@
 "use client";
 import React, { createContext, useState, useContext, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { getContentData } from "@/actions/getData";
 
 const LanguageContext = createContext();
 
-const localStorageKey = "language";
 import { en } from "@/locales/en";
 import { pt } from "@/locales/pt";
 
-export const LanguageProvider = ({ children }) => {
-  const [language, setLanguageState] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-  const [allContent, setAllContent] = useState(null);
-  const [content, setContent] = useState(null);
-  const [sliderImages, setSliderImages] = useState([]);
-
-  function processData(data, language) {
-    let processedData = {};
-
-    for (let key in data) {
-      if (key.endsWith(`_${language}`)) {
-        processedData[key.replace(`_${language}`, "")] = data[key];
-      } else if (!key.endsWith("_en") && !key.endsWith("_pt")) {
-        processedData[key] = data[key];
-      }
+function processData(data, language) {
+  if (!data) return {};
+  let processedData = {};
+  for (const key in data) {
+    if (key.endsWith(`_${language}`)) {
+      processedData[key.replace(`_${language}`, "")] = data[key];
+    } else if (!key.endsWith("_en") && !key.endsWith("_pt")) {
+      processedData[key] = data[key];
     }
-    console.log(processedData);
-
-    return processedData;
   }
+  return processedData;
+}
+
+function getContentForLang(data, lang) {
+  const contentData = processData(data, lang);
+  return lang === "en" ? { ...contentData, ...en } : { ...contentData, ...pt };
+}
+
+function getLocaleFromPathname(pathname) {
+  return pathname?.startsWith("/en") ? "en" : "pt";
+}
+
+export const LanguageProvider = ({ children, initialData }) => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const localeFromPath = getLocaleFromPathname(pathname);
+  const [language, setLanguageState] = useState(localeFromPath || "pt");
+  const [isLoading, setIsLoading] = useState(!initialData);
+  const [allContent, setAllContent] = useState(initialData ?? null);
+  const [content, setContent] = useState(() =>
+    initialData ? getContentForLang(initialData, localeFromPath || "pt") : null
+  );
+  const [sliderImages, setSliderImages] = useState(
+    initialData
+      ? [
+          initialData.slider_image1,
+          initialData.slider_image2,
+          initialData.slider_image3,
+          initialData.slider_image4,
+        ].filter(Boolean)
+      : []
+  );
 
   const setLanguage = (lang) => {
-    localStorage.setItem(localStorageKey, lang);
+    const path = lang === "en" ? "/en" : "/";
+    if (pathname !== path) {
+      router.push(path);
+    }
     setLanguageState(lang);
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      const storedLanguage = localStorage.getItem(localStorageKey);
-      const lang = storedLanguage || "pt";
-      const data = await getContentData();
-
-      setAllContent(data);
-      setSliderImages([
-        data.slider_image1,
-        data.slider_image2,
-        data.slider_image3,
-        data.slider_image4,
-      ]);
-      const contentData = processData(data, lang);
-
-      if (lang === "en") {
-        const updatedContentData = {
-          ...contentData,
-          ...en, // Assuming en is defined somewhere
-        };
-        setContent(updatedContentData);
-      } else {
-        const updatedContentData = {
-          ...contentData,
-          ...pt, // Assuming pt is defined somewhere
-        };
-        setContent(updatedContentData);
-      }
-
-      setLanguageState(lang);
-      setIsLoading(false);
-    };
-
-    fetchData();
-  }, []);
+    const locale = getLocaleFromPathname(pathname);
+    setLanguageState(locale);
+  }, [pathname]);
 
   useEffect(() => {
-    const updateContent = async () => {
-      if (language) {
-        const contentData = processData(allContent, language);
-
-        if (language === "en") {
-          const updatedContentData = {
-            ...contentData,
-            ...en,
-          };
-          setContent(updatedContentData);
-        } else {
-          const updatedContentData = {
-            ...contentData,
-            ...pt,
-          };
-          console.log(updatedContentData);
-          setContent(updatedContentData);
-        }
-      }
+    const applyData = (data) => {
+      setAllContent(data);
+      setSliderImages([
+        data?.slider_image1,
+        data?.slider_image2,
+        data?.slider_image3,
+        data?.slider_image4,
+      ].filter(Boolean));
+      setContent(getContentForLang(data || {}, language));
     };
 
-    updateContent();
-  }, [language]);
+    if (initialData) {
+      applyData(initialData);
+      setIsLoading(false);
+    } else {
+      const fetchData = async () => {
+        setIsLoading(true);
+        const data = await getContentData();
+        applyData(data);
+        setIsLoading(false);
+      };
+      fetchData();
+    }
+  }, [initialData]);
+
+  useEffect(() => {
+    if (language && allContent) {
+      setContent(getContentForLang(allContent, language));
+    }
+  }, [language, allContent]);
 
   return (
     <LanguageContext.Provider

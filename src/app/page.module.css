@@ -135,10 +135,32 @@
   display: flex;
   list-style: none;
   justify-content: flex-end;
+  align-items: center;
   font-family: "Sofia Sans Extra Condensed";
   font-size: 16px;
   gap: 5px;
   margin-top: -7px;
+}
+
+.linguas a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.linguas a:hover {
+  opacity: 1;
+}
+
+.linguas .langActive {
+  opacity: 1;
+  font-weight: 600;
+}
+
+.langDivider {
+  opacity: 0.5;
 }
 
 .reservarBtn {

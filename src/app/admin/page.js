@@ -73,6 +73,7 @@ const AdminPage = () => {
   });
 
   const [loading, setLoading] = useState(true); // loading state
+  const [showSuccess, setShowSuccess] = useState(false);
   const fileInputRefs = useRef({});
 
   useEffect(() => {
@@ -150,7 +151,8 @@ const AdminPage = () => {
 
       const docRef = doc(db, "admin", "conteudos");
       await setDoc(docRef, updatedContent);
-      alert("Sucesso");
+      setShowSuccess(true);
+      setTimeout(() => setShowSuccess(false), 3000);
       console.log("Content updated successfully!");
     } catch (error) {
       console.error("Error updating content: ", error);
@@ -174,12 +176,13 @@ const AdminPage = () => {
         {content[key] ? (
           typeof content[key] === "string" &&
           content[key].startsWith("http") ? (
-            // If content is a URL
+            // If content is a URL - unoptimized to load directly from Firebase
             <Image
               src={content[key]}
               alt={key}
               width={100}
               height={100}
+              unoptimized
               style={{ maxWidth: "200px", maxHeight: "200px" }}
             />
           ) : (
@@ -193,6 +196,7 @@ const AdminPage = () => {
               alt={key}
               width={100}
               height={100}
+              unoptimized
               style={{ maxWidth: "200px", maxHeight: "200px" }}
             />
           )
@@ -225,6 +229,14 @@ const AdminPage = () => {
 
   return (
     <div className={styles.main}>
+      {showSuccess && (
+        <div className={styles.successPopup} onClick={() => setShowSuccess(false)}>
+          <div className={styles.successContent}>
+            <span className={styles.successIcon}>✓</span>
+            <span className={styles.successText}>Conteúdos guardados com sucesso</span>
+          </div>
+        </div>
+      )}
       <header>
         <h1 className={styles.title}>Edição de conteúdos</h1>
         <button onClick={() => saveContent()}>Guardar</button>
