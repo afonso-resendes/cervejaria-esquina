@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { LanguageProvider } from "@/context/ContentContext";
 import { getContentData } from "@/actions/getData";
@@ -125,6 +126,7 @@ export default async function RootLayout({ children }) {
         <LanguageProvider initialData={initialData}>
           {children}
         </LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );
