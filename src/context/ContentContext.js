@@ -79,16 +79,18 @@ export const LanguageProvider = ({ children, initialData }) => {
     if (initialData) {
       applyData(initialData);
       setIsLoading(false);
-    } else {
-      const fetchData = async () => {
-        setIsLoading(true);
-        const data = await getContentData();
-        applyData(data);
-        setIsLoading(false);
-      };
-      fetchData();
     }
-  }, [initialData]);
+
+    const fetchFresh = async () => {
+      try {
+        const data = await getContentData();
+        if (data) applyData(data);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchFresh();
+  }, []);
 
   useEffect(() => {
     if (language && allContent) {

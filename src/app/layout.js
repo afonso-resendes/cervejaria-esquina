@@ -5,6 +5,8 @@ import { LanguageProvider } from "@/context/ContentContext";
 import { getContentData } from "@/actions/getData";
 import HtmlLang from "@/components/HtmlLang";
 
+export const dynamic = "force-dynamic";
+
 const inter = Inter({ subsets: ["latin"] });
 
 const siteUrl = "https://esquinasteakhouse.pt";
