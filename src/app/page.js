@@ -192,6 +192,7 @@ export default function Home() {
           alt="Cervejaria Esquina Steakhouse - Logo"
           src={logo}
           className={styles.logo}
+          priority
         />
         <ul className={styles.topicosCentrais}>
           <li onClick={() => scrollToRef(sobreTitleRef)}>
@@ -263,9 +264,10 @@ export default function Home() {
                 <Image
                   src={img}
                   alt={language === "pt" ? `Carrossel Cervejaria Esquina - Carne maturada Açores, slide ${index + 1}` : `Cervejaria Esquina steakhouse carousel - Matured meat Azores, slide ${index + 1}`}
-                  width={2000} // Adjust to fit the container size
-                  height={2000} // Adjust to maintain aspect ratio
-                  layout="responsive" // This makes the image responsive
+                  width={1200}
+                  height={675}
+                  sizes="100vw"
+                  priority={index === 0}
                   className={styles.carrouselImage}
                 />
               </div>
